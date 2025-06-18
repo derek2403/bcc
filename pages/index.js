@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import { useState } from "react";
 import Background from "../components/Background";
 
 const geistSans = Geist({
@@ -13,6 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const [isLeftImageHovered, setIsLeftImageHovered] = useState(false);
+
   return (
     <>
       <Background />
@@ -23,13 +26,17 @@ export default function Home() {
         <div className="w-[90vw] h-[75vh] flex gap-4">
           {/* Left side - 35% width vertical button */}
           <div className="w-[35%]">
-            <div className="h-[109%] w-full bg-gray-200 border-2 border-black">
+            <div 
+              className="h-[109%] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all duration-100"
+              onMouseEnter={() => setIsLeftImageHovered(true)}
+              onMouseLeave={() => setIsLeftImageHovered(false)}
+            >
               <Image
-                src="/placeholder-image-1.jpg"
+                src={isLeftImageHovered ? "/img1h.png" : "/img1.png"}
                 alt="Main image"
                 width={500}
                 height={800}
-                className="w-full h-full object-cover"
+                className="w-full h-[100%] transition-all duration-100"
               />
             </div>
           </div>
