@@ -41,13 +41,12 @@ export default function OurFocusPopup({ isOpen, onClose }) {
 
   const tradingEvents = {
     past: [
-      'Crypto Trading Bootcamp 2024',
-      'DeFi Strategy Workshop',
-      'Trading Psychology Seminar',
-      'Risk Management Masterclass',
-      'Blockchain Networking Mixer',
-      'Crypto Community Meetup',
-      'Trading & Investment Forum'
+      'SuperteamMY Meet Eno from Sanctum ',
+      'Offchain Global Christmas Party',
+      'CoinEX World Tour Networking Event',
+      'Cryptobilis Bitcoin Pizza Day',
+      'STMY Super Party',
+      'TARUMT Blockchain Pizza Day',
     ],
     upcoming: [
       'Advanced Trading Strategies',
@@ -62,16 +61,20 @@ export default function OurFocusPopup({ isOpen, onClose }) {
 
   const developerEvents = {
     past: [
-      'Smart Contract Development Workshop',
-      'Web3 Frontend Bootcamp',
-      'Solidity Fundamentals Course',
-      'DApp Architecture Seminar'
+      'DevCon',
+      'Front End Development Workshop',
+      'Blockchain 101 + Ideathon',
+      'Web3 Development Workshop',
+      'Hackathon Incubation Program',
+      'Solana Smart Contract Workshop',
+      'Vibe Coding 101'
     ],
     upcoming: [
-      'Advanced React for Web3',
-      'Blockchain Security Workshop',
-      'Cross-chain Development',
-      'Smart Contract Auditing Course'
+      'Hackathon Incubation Program Stage 2',
+      'University Level Hackathon',
+      'Full Stack Development Workshop',
+      'Linux Command Line + GitHub Workshop',
+      'University Web3 Conference'
     ]
   };
 
