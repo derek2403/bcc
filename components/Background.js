@@ -26,12 +26,12 @@ export default function Background() {
       const material = new THREE.LineBasicMaterial({ 
         color: 0xffffff,
         transparent: true,
-        opacity: 0.8,
+        opacity: 1,
         linewidth: 5
       });
 
       // Calculate angle for this line
-      const angle = (i / lineCount) * Math.PI * 2;
+      const angle = (i / lineCount) * Math.PI * 3;
       
       // Initial empty line
       const points = [

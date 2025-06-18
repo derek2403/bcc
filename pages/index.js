@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   const [isLeftImageHovered, setIsLeftImageHovered] = useState(false);
-
+  const [isTopRightImageHovered, setIsTopRightImageHovered] = useState(false);
+  const [isBottomRightImageHovered, setIsBottomRightImageHovered] = useState(false);
   return (
     <>
       <Background />
@@ -27,16 +28,16 @@ export default function Home() {
           {/* Left side - 35% width vertical button */}
           <div className="w-[35%]">
             <div 
-              className="h-[109%] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all duration-100"
+              className="h-[100%] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
               onMouseEnter={() => setIsLeftImageHovered(true)}
               onMouseLeave={() => setIsLeftImageHovered(false)}
             >
               <Image
                 src={isLeftImageHovered ? "/img1h.png" : "/img1.png"}
                 alt="Main image"
-                width={500}
-                height={800}
-                className="w-full h-[100%] transition-all duration-100"
+                width={1200}
+                height={1600}
+                className="w-full h-full transition-all duration-300"
               />
             </div>
           </div>
@@ -44,35 +45,43 @@ export default function Home() {
           {/* Right side - 65% width, three horizontal buttons stacked */}
           <div className="w-[65%] flex flex-col gap-4">
             {/* Image 1 */}
-            <div className="flex-1 w-full bg-gray-200 border-2 border-black">
+            <div 
+              className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
+              onMouseEnter={() => setIsTopRightImageHovered(true)}
+              onMouseLeave={() => setIsTopRightImageHovered(false)}
+            >
               <Image
-                src="/placeholder-image-2.jpg"
+                src={isTopRightImageHovered ? "/img2h.png" : "/img2.png"}
                 alt="Image 1"
-                width={600}
-                height={125}
-                className="w-full h-full object-cover"
+                width={1800}
+                height={500}
+                className="w-full h-full object-left object-top transition-all duration-300"
               />
             </div>
 
             {/* Image 2 */}
-            <div className="flex-1 w-full bg-gray-200 border-2 border-black">
+            <div className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black">
               <Image
-                src="/placeholder-image-3.jpg"
+                src="/img3.png"
                 alt="Image 2"
-                width={600}
-                height={125}
-                className="w-full h-full object-cover"
+                width={1800}
+                height={600}
+                className="w-full h-full object-cover object-top"
               />
             </div>
 
             {/* Image 3 */}
-            <div className="flex-1 w-full bg-gray-200 border-2 border-black">
+            <div 
+              className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
+              onMouseEnter={() => setIsBottomRightImageHovered(true)}
+              onMouseLeave={() => setIsBottomRightImageHovered(false)}
+            >
               <Image
-                src="/placeholder-image-4.jpg"
+                src={isBottomRightImageHovered ? "/img4h.png" : "/img4.png"}
                 alt="Image 3"
-                width={600}
-                height={125}
-                className="w-full h-full object-cover"
+                width={1800}
+                height={600}
+                className="w-full h-full object-top"
               />
             </div>
           </div>
