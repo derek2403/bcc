@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { useState } from "react";
 import Background from "../components/Background";
+import AchievementsPopup from "../components/AchievementsPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,7 @@ export default function Home() {
   const [isLeftImageHovered, setIsLeftImageHovered] = useState(false);
   const [isTopRightImageHovered, setIsTopRightImageHovered] = useState(false);
   const [isBottomRightImageHovered, setIsBottomRightImageHovered] = useState(false);
+  const [isAchievementsPopupOpen, setIsAchievementsPopupOpen] = useState(false);
   return (
     <>
       <Background />
@@ -28,9 +30,10 @@ export default function Home() {
           {/* Left side - 35% width vertical button */}
           <div className="w-[35%]">
             <div 
-              className="h-[100%] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
+              className="h-[100%] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all duration-300 "
               onMouseEnter={() => setIsLeftImageHovered(true)}
               onMouseLeave={() => setIsLeftImageHovered(false)}
+              onClick={() => setIsAchievementsPopupOpen(true)}
             >
               <Image
                 src={isLeftImageHovered ? "/img1h.png" : "/img1.png"}
@@ -46,7 +49,7 @@ export default function Home() {
           <div className="w-[65%] flex flex-col gap-4">
             {/* Image 1 */}
             <div 
-              className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
+              className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsTopRightImageHovered(true)}
               onMouseLeave={() => setIsTopRightImageHovered(false)}
             >
@@ -54,8 +57,8 @@ export default function Home() {
                 src={isTopRightImageHovered ? "/img2h.png" : "/img2.png"}
                 alt="Image 1"
                 width={1800}
-                height={500}
-                className="w-full h-full object-left object-top transition-all duration-300"
+                height={600}
+                className="w-full h-full  object-top transition-all duration-300"
               />
             </div>
 
@@ -87,6 +90,12 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Achievements Popup */}
+      <AchievementsPopup 
+        isOpen={isAchievementsPopupOpen} 
+        onClose={() => setIsAchievementsPopupOpen(false)} 
+      />
     </>
   );
 }
