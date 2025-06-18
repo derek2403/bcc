@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { useState } from "react";
 import Background from "../components/Background";
 import AchievementsPopup from "../components/AchievementsPopup";
+import OurFocusPopup from "../components/OurFocusPopup";
+import Colab from "../components/Colab";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +21,8 @@ export default function Home() {
   const [isTopRightImageHovered, setIsTopRightImageHovered] = useState(false);
   const [isBottomRightImageHovered, setIsBottomRightImageHovered] = useState(false);
   const [isAchievementsPopupOpen, setIsAchievementsPopupOpen] = useState(false);
+  const [isOurFocusPopupOpen, setIsOurFocusPopupOpen] = useState(false);
+  const [isColabPopupOpen, setIsColabPopupOpen] = useState(false);
   return (
     <>
       <Background />
@@ -52,6 +56,7 @@ export default function Home() {
               className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsTopRightImageHovered(true)}
               onMouseLeave={() => setIsTopRightImageHovered(false)}
+              onClick={() => setIsOurFocusPopupOpen(true)}
             >
               <Image
                 src={isTopRightImageHovered ? "/img2h.png" : "/img2.png"}
@@ -78,6 +83,7 @@ export default function Home() {
               className="h-[calc(33.33%-10.67px)] w-full bg-gray-200 border-2 border-black cursor-pointer transition-all "
               onMouseEnter={() => setIsBottomRightImageHovered(true)}
               onMouseLeave={() => setIsBottomRightImageHovered(false)}
+              onClick={() => setIsColabPopupOpen(true)}
             >
               <Image
                 src={isBottomRightImageHovered ? "/img4h.png" : "/img4.png"}
@@ -95,6 +101,18 @@ export default function Home() {
       <AchievementsPopup 
         isOpen={isAchievementsPopupOpen} 
         onClose={() => setIsAchievementsPopupOpen(false)} 
+      />
+
+      {/* Our Focus Popup */}
+      <OurFocusPopup 
+        isOpen={isOurFocusPopupOpen} 
+        onClose={() => setIsOurFocusPopupOpen(false)} 
+      />
+
+      {/* Colab Popup */}
+      <Colab 
+        isOpen={isColabPopupOpen} 
+        onClose={() => setIsColabPopupOpen(false)} 
       />
     </>
   );
