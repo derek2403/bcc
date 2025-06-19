@@ -74,7 +74,7 @@ export default function Home() {
                 alt="Image 2"
                 width={1800}
                 height={600}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-top"
               />
             </div>
 
